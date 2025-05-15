@@ -96,4 +96,7 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(focused_corr, annot=True, fmt=".2f", cmap='coolwarm', square=True)
 plt.title("📊 Focused Correlation Heatmap (Filtered by |r| ≥ 0.3)")
 plt.tight_layout()
+plt.savefig('../images/Focused_Correlation_Heatmap.png', dpi=300, bbox_inches='tight')
 plt.show()
+
+# %%

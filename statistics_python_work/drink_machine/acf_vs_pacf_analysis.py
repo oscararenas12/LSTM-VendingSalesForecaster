@@ -9,7 +9,7 @@ from statsmodels.tsa.arima.model import ARIMA
 register_matplotlib_converters()
 
 #%% Load Data
-df = pd.read_csv('../../data/cleaned_drink_sales_data.csv')
+df = pd.read_csv('../data/cleaned_drink_sales_data.csv')
 
 #%% Preprocess Data
 df['Date'] = pd.to_datetime(df['Date'])
@@ -30,6 +30,7 @@ plt.grid(alpha=0.3)
 plt.legend()
 plt.tight_layout()
 plt.show()
+plt.savefig('../images/Drink_Vending_Machine_Sales_Over_Time.png', dpi=300, bbox_inches='tight')
 
 #%% ACF and PACF plots
 series = df_daily['total_items_sold'].dropna()
@@ -38,10 +39,13 @@ plt.figure(figsize=(10, 4))
 plot_acf(series, lags=30)
 plt.title('ACF: Daily Total Items Sold')
 plt.tight_layout()
+plt.savefig('../images/acf_daily_total_items_sold.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 plt.figure(figsize=(10, 4))
 plot_pacf(series, lags=15, method='ywm')
 plt.title('PACF: Daily Total Items Sold')
 plt.tight_layout()
+plt.savefig('../images/pacf_daily_total_items_sold.png', dpi=300, bbox_inches='tight')
 plt.show()
+# %%
