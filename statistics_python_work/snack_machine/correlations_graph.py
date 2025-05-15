@@ -5,10 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # %% 📁 Load and preprocess base data
-df = pd.read_csv('../data/cleaned_drink_sales_data.csv')
+df = pd.read_csv('../../data/cleaned_snack_sales_data.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 
-#%%
 # Base features
 df['Hour_of_Day'] = df['Date'].dt.hour
 df['Day_of_Week'] = df['Date'].dt.dayofweek
@@ -78,22 +77,4 @@ plt.title("📊 Expanded Correlation Heatmap (Daily Level Features)")
 plt.tight_layout()
 plt.show()
 
-# %% 🔍 Focused Correlation Heatmap (Strong/Moderate Only)
-threshold = 0.3  # Minimum correlation value (absolute) to include in heatmap
-
-# Compute correlation matrix
-corr_matrix = daily_clean.corr(numeric_only=True)
-
-# Focus on correlations with Daily_Items_Sold
-target_corr = corr_matrix['Daily_Items_Sold'].abs()
-relevant_features = target_corr[target_corr >= threshold].index.tolist()
-
-# Slice the matrix
-focused_corr = corr_matrix.loc[relevant_features, relevant_features]
-
-# Plot
-plt.figure(figsize=(10, 8))
-sns.heatmap(focused_corr, annot=True, fmt=".2f", cmap='coolwarm', square=True)
-plt.title("📊 Focused Correlation Heatmap (Filtered by |r| ≥ 0.3)")
-plt.tight_layout()
-plt.show()
+# %%
