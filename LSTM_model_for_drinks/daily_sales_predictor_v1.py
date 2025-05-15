@@ -104,6 +104,7 @@ plt.xlabel('Time Step')
 plt.ylabel('Items Sold')
 plt.legend()
 plt.grid()
+plt.savefig('../images/Combined_LSTM_Forecast_V1.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 # 📊 Error distribution visualization
@@ -127,4 +128,6 @@ plt.xlabel('Actual Values')
 plt.ylabel('Predicted Values')
 
 plt.tight_layout()
+plt.savefig('../images/Error_Distribution_and_Actual_vs_Predicted_V1.png', dpi=300, bbox_inches='tight')
 plt.show()
+# %%
